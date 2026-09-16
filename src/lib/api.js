@@ -1,4 +1,6 @@
-const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
+import { PUBLIC_API_URL } from '$env/static/public';
+
+const API_URL = PUBLIC_API_URL.replace(/\/$/, '');
 
 export async function request(path, options = {}) {
   const response = await fetch(`${API_URL}${path}`, { headers: { 'Content-Type': 'application/json', ...options.headers }, ...options });
